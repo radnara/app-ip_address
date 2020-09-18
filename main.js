@@ -45,7 +45,7 @@ class IpAddress {
 
     // Initialize return arguments for callback
     //let firstIpAddress = null;
-    let firstIpAddress = {ipv4: "", ipv6:""};
+    let firstIpAddress = {ipv4:null, ipv6:null};
     //Rads
     //let firstIpV6Address = null;
     let callbackError = null;
@@ -70,7 +70,7 @@ class IpAddress {
         [firstIpAddress.ipv4] = cidr.toArray(options);
         //Rads
         //firstIpV6Address = getIpv4MappedIpv6Address(firstIpAddress);
-        [firstIpAddress.ipv6] = getIpv4MappedIpv6Address([firstIpAddress.ipv4]);
+        firstIpAddress.ipv6 = getIpv4MappedIpv6Address([firstIpAddress.ipv4]);
     }
     // Call the passed callback function.
     // Node.js convention is to pass error data as the first argument to a callback.
